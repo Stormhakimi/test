@@ -1,0 +1,31 @@
+Task 10: Integrate Gaode Maps JS API v2 — Build Evidence
+=========================================================
+Date: 2026-03-22
+
+## npx tsc --noEmit
+Exit code: 0
+Output: (none — clean)
+
+## npm run build
+Exit code: 0
+Output:
+> oil-field-dispatch@0.1.0 build
+> tsc && vite build
+
+vite v6.4.1 building for production...
+✓ 947 modules transformed.
+dist/registerSW.js                0.13 kB
+dist/manifest.webmanifest         0.36 kB
+dist/index.html                   0.59 kB │ gzip:   0.38 kB
+dist/assets/index-RwB6cv7D.css   33.43 kB │ gzip:   6.59 kB
+dist/assets/index-BUjAZa9E.js  554.83 kB │ gzip: 188.02 kB
+✓ built in 2.26s
+
+PWA v0.21.2
+mode      generateSW
+precache  7 entries (575.18 KiB)
+
+## Files Created
+- src/hooks/useAMap.ts — Custom hook for Gaode Maps JS API loading (singleton pattern)
+- src/components/MapView.tsx — Generic map container with forwardRef
+- src/components/MapContainer.tsx — Higher-level wrapper with loading/error states

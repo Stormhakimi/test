@@ -1,0 +1,30 @@
+Build verification for Task 20 - Responsive Layout Polish
+=========================================================
+
+Changes made:
+1. src/index.css:
+   - Added html, body { height: 100%; overflow: hidden; }
+   - Added background: #e8eaed for desktop outer area
+   - Added -webkit-tap-highlight-color: transparent for mobile
+   - Added 'Roboto' to font-family stack
+   - Updated #root with 100dvh and flex centering
+
+2. src/components/Layout.module.css:
+   - Added width: 100% for proper mobile sizing
+   - Changed .content to overflow: hidden (pages handle own scrolling)
+   - Added min-height: 0 for flex child proper sizing
+   - Added background: #fff to .tabBar
+   - Removed box-shadow (cleaner look on desktop)
+
+Build Status: PASSED (exit 0)
+TypeScript: CLEAN (no errors)
+
+Viewport Behavior:
+- Mobile (375px): Container fills viewport, no horizontal scroll
+- Desktop (1280px): Container centered at max 768px with gray background outside
+- TabBar: Fixed at bottom, FloatingBubble clears with 72px bottom position
+- All pages: Handle their own scrolling with overflow-y: auto
+
+Final build output:
+✓ 966 modules transformed
+✓ built in 2.50s

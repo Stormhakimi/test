@@ -1,0 +1,25 @@
+Task 18 - Wave 3 integration evidence
+Date: 2026-03-22
+
+Changed files:
+- src/components/dispatch/StepResults.tsx
+- src/pages/DispatchPage.tsx (reviewed; no code change required)
+
+Verification commands:
+1) npm run build
+   Result: PASS (exit 0)
+
+2) npx vitest run --reporter=verbose
+   Result: PASS (5 files, 53 tests passed)
+
+3) npx tsc --noEmit
+   Result: PASS (exit 0, no output)
+
+LSP diagnostics:
+- Could not run TypeScript LSP diagnostics in this environment.
+- Error: typescript-language-server not installed.
+
+DispatchPage checks completed:
+- Step 4 renders StepResults when currentStep === 4.
+- Reset button ("重新开始") appears when currentStep > 1 and calls reset().
+- No placeholder-specific imports/circular dependency issues found.

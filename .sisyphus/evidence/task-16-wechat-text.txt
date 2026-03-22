@@ -1,0 +1,49 @@
+Task 16: WeChat Text Generator — Evidence
+==========================================
+
+## Files Created
+
+1. src/lib/wechat-text.ts — Pure function for WeChat dispatch text generation
+   - Interfaces: LocationInfo, DriverInfo, EnrichedDriverRoute, GenerateTextInput
+   - Functions: formatDistance(), formatTime(), generateWeChatText()
+   - Uses LOCATION_TYPE_LABELS from @/types for Chinese location type labels
+   - Handles constraints display, numbered locations, driver headers
+
+2. src/lib/wechat-text.test.ts — 13 passing tests (7+ required)
+   - formatDistance: 2 tests (meters under 1km, km with decimal)
+   - formatTime: 3 tests (minutes, hours+minutes, exact hours)
+   - generateWeChatText: 8 tests (empty routes, date header, driver names,
+     vehicle info, numbered locations, distances, constraints, addresses)
+
+3. src/components/WeChatTextPreview.tsx — Copy-to-clipboard UI component
+   - Uses antd-mobile Card, Button, TextArea, Toast
+   - Clipboard API with fallback to execCommand
+   - Visual feedback: button changes to "✓ 已复制" after copy
+
+## Verification
+
+### vitest (13/13 PASS)
+```
+✓ src/lib/wechat-text.test.ts > formatDistance > formats meters under 1km
+✓ src/lib/wechat-text.test.ts > formatDistance > formats km with one decimal
+✓ src/lib/wechat-text.test.ts > formatTime > formats minutes under 1 hour
+✓ src/lib/wechat-text.test.ts > formatTime > formats hours and minutes
+✓ src/lib/wechat-text.test.ts > formatTime > formats exact hours
+✓ src/lib/wechat-text.test.ts > generateWeChatText > returns no-dispatch message for empty routes
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes date header
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes all driver names
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes vehicle info in driver header
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes numbered location list
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes total distance for each driver
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes constraint notes
+✓ src/lib/wechat-text.test.ts > generateWeChatText > includes location addresses
+
+Test Files: 1 passed (1)
+Tests: 13 passed (13)
+```
+
+### tsc --noEmit
+Clean — no type errors.
+
+## Date
+2026-03-22

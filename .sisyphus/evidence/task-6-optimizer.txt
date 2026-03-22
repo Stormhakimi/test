@@ -1,0 +1,39 @@
+Task 6: Route Optimization Algorithm — COMPLETE
+================================================
+
+Date: 2026-03-22
+
+Files Created:
+  - src/lib/route-optimizer.ts (implementation)
+  - src/lib/route-optimizer.test.ts (13 test cases)
+
+Algorithm:
+  - Haversine distance (great-circle, GCJ-02 [lng, lat])
+  - NxN distance matrix (index 0 = depot)
+  - Nearest Neighbor heuristic with constraint-aware filtering
+  - 2-opt local search improvement (skipped when constraints present)
+  - DAG cycle detection for constraint validation
+
+Test Results: ALL 13 PASS
+  ✓ haversineDistance > returns 0 for same point (1ms)
+  ✓ haversineDistance > calculates distance between two points in meters (0ms)
+  ✓ validateConstraints > returns true for empty constraints (0ms)
+  ✓ validateConstraints > returns true for valid chain (A→B→C) (0ms)
+  ✓ validateConstraints > returns false for direct cycle (0ms)
+  ✓ validateConstraints > returns false for indirect cycle (A→B→C→A) (0ms)
+  ✓ optimizeRoute > returns empty route for no locations (1ms)
+  ✓ optimizeRoute > returns single location for single input (0ms)
+  ✓ optimizeRoute > visits all locations (0ms)
+  ✓ optimizeRoute > respects must_before constraint (0ms)
+  ✓ optimizeRoute > returns error for conflicting constraints (0ms)
+  ✓ optimizeRoute > round-trip distance > one-way for same locations (0ms)
+  ✓ optimizeRoute > completes 20 locations in under 2 seconds (1ms)
+
+TypeScript: npx tsc --noEmit → 0 errors
+Performance: 20 locations optimized in 1ms (well under 2s limit)
+
+Exports:
+  - haversineDistance(a, b) → meters
+  - buildDistanceMatrix(allCoords) → number[][]
+  - validateConstraints(constraints) → boolean
+  - optimizeRoute(config) → RouteResult

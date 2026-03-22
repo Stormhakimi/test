@@ -1,0 +1,22 @@
+Task 19: Data Export/Import — Evidence
+======================================
+
+Files Created:
+- src/lib/data-io.ts — exportData, importData, downloadJson, validateExportData, readJsonFile
+- src/lib/data-io.test.ts — 5 tests (validate, round-trip, readJsonFile error cases)
+- src/components/DataManager.tsx — Export/Import UI with confirmation dialog
+
+Files Modified:
+- src/pages/SettingsPage.tsx — Added DataManager in "数据管理" section before "关于"
+
+Verification Results:
+1. npx vitest run src/lib/data-io.test.ts → 5/5 PASS
+   - validateExportData > returns true for valid export data
+   - validateExportData > returns false for invalid data
+   - export and import round-trip > exports and reimports all data correctly
+   - readJsonFile > throws for invalid JSON
+   - readJsonFile > throws for wrong format
+
+2. npx tsc --noEmit → PASS (clean, no errors)
+
+3. npm run build → PASS (built in 2.42s)

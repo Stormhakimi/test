@@ -1,0 +1,37 @@
+{
+  "name": "oil-field-dispatch",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1",
+    "antd-mobile": "^5",
+    "dexie": "^4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6",
+    "zustand": "^5"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/node": "^25.5.0",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4",
+    "@vitest/ui": "latest",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "latest",
+    "typescript": "^5",
+    "vite": "^6",
+    "vite-plugin-pwa": "^0.21",
+    "vitest": "^3"
+  }
+}
